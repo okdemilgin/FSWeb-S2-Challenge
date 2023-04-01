@@ -72,10 +72,10 @@ var cumleler = [
 function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 	return birinci+ikinci+ucuncu+dorduncu+besinci;
 }
-
+console.log (cumleKur("Ilgın Ökdem"));
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+console.log (cumleKur("Ilgın ","Ökdem"));
 
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
@@ -84,8 +84,8 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
-var bircumle;
-
+var bircumle = cumleKur ("Ben ", "iyi ", "bir ", "yazılımcı ", "olacağım! ");
+console.log (bircumle);
 /* kodlar buraya */
 
 
@@ -104,11 +104,14 @@ var bircumle;
 	*/
 	
 
-function cumlelereDonustur(/* kodlar buraya */ ){
-	/* kodlar buraya */
+function cumlelereDonustur(cumleler, string=",") {
+	let yeniDizi = cumleler.map(function(string) { 
+		return string.join(' ');
+})
+return yeniDizi;
 }
-
-
+ console.log(cumlelereDonustur(cumleler, string=","));
+  
 
 /* GÖREV 2:
 		paragrafOlustur fonksiyonuna aşağıdakileri uygulayın.
@@ -120,9 +123,21 @@ function cumlelereDonustur(/* kodlar buraya */ ){
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(/* kodlar buraya */ ){
-	/* kodlar buraya */ 
-}
+	function paragrafOlustur(cumleler, cumleKurCB, cumlelereDonusturCB ){
+		const dizi2 = cumlelereDonusturCB(cumleler, " ");
+		const ilkBesEleman= cumleKurCB(dizi2[1], dizi2[3], dizi2[5], dizi2[7], dizi2[9]);
+		return ilkBesEleman;
+
+	}
+
+	const paragraf = paragrafOlustur(cumleler, cumleKur, cumlelereDonustur);
+	console.log(paragraf);
+
+
+	
+
+
+
 
 
 /* 	GÖREV 3:
@@ -131,8 +146,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
  */
 //3a çözümü
 /* kodlar buraya */
-
-
+console.log (meyveler.pop());
+console.log (meyveler.shift());
 
 
 
@@ -141,6 +156,12 @@ function paragrafOlustur(/* kodlar buraya */ ){
 */
 //3b çözümü
 /* kodlar buraya */
+sebzeler.push ("🦔");
+console.log(sebzeler);
+
+
+sebzeler.unshift ("🐇");
+console.log (sebzeler);
 
 
 
@@ -155,6 +176,9 @@ function paragrafOlustur(/* kodlar buraya */ ){
 /* kodlar buraya */
 
 var manav;
+let newArray = meyveler.concat (sebzeler);
+console.log (newArray);
+
 
 
 
@@ -170,12 +194,18 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
-/* kodlar buraya */
-
-}
-
-
+		function emojileriDonustur(mesaj, object) {
+		for(let key in object){
+			
+			mesaj = mesaj.replaceAll(key.toUpperCase(), object[key])
+			mesaj = mesaj.replaceAll(key.toLowerCase(), object[key])
+		}
+		return mesaj;
+	}
+	
+		console.log (emojileriDonustur("<3", emojiler));
+	
+		/*const mesaj = [":D",":)",":(",":d",":p",":o","<3"];
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 function sa(){
